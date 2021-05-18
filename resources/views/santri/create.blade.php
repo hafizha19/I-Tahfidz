@@ -31,7 +31,7 @@ Tambah Santri
                         <div class="form-group row">
                             <label for="daerah_id" class="col-md-4 col-form-label text-md-right">Lokasi Kecamatan</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" value="{{ $data->daerah->kecamatan_name ?? '' }}" required autocomplete="tanggal_lahir" autofocus>
+                                <select class="cari form-control"  name="daerah_id" id="cari_daerah"></select>
                             </div>
                         </div>
                         <div class="form-group row">
