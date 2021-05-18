@@ -46,7 +46,7 @@ Tambah Santri
                         <div class="form-group row">
                             <label for="tanggal_lahir" class="col-md-4 col-form-label text-md-right">Tanggal Lahir</label>
                             <div class="col-md-6">
-                                <input type="date" class="form-control" value="{{ $data->tanggal_lahir ?? '' }}" required autocomplete="tanggal_lahir" autofocus>
+                                <input type="date" class="form-control" name="tanggal_lahir" value="{{ $data->tanggal_lahir ?? '' }}" required autocomplete="tanggal_lahir" autofocus>
                             </div>
                         </div>
                         <div class="form-group row">
