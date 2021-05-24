@@ -38,6 +38,7 @@ Santri di Pesantren {{ $data['ponpes'] }}
                             </tr>
                         </thead>
                         <tbody>
+                            @if (isset($data['santri']))
                             @foreach ($data['santri'] as $d)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
@@ -69,6 +70,7 @@ Santri di Pesantren {{ $data['ponpes'] }}
                                 </td>
                             </tr>
                             @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>

@@ -17,16 +17,25 @@ class SantriController extends Controller
         // dd(Santri::with('ponpes')->get());
         // $data = Santri::with('ponpes')->where('id', '=', Auth::user()->ponpes->id)->get();
         $data['ponpes'] = Ponpes::where('user_id', Auth::user()->id)->first()->nama ?? 'Saya';
-        $data['santri'] = Santri::with(["ponpes" => function($q){
-            $q->where('ponpes.user_id', '=', Auth::user()->id);
-        }])->get();
+        $ponpes = Ponpes::where('user_id', Auth::user()->id)->first();
+        if (isset($ponpes)) {
+            $data['santri'] = Santri::with('ponpes')
+            ->where('ponpes_id', $ponpes->id)->get();
+        } else {
+            $data['santri'] = null;
+        }
         return view('santri.index', compact('data'));
     }
 
     public function create()
     {
 
-        return view('santri.create');
+        $ponpes = Ponpes::where('user_id', '=', Auth::user()->id)->first();
+        if (isset($ponpes)) {
+            return view('santri.create');
+        } else {
+            return view('ponpes.register')->with('status', 'Lengkapi Data Pesantren terlebih dahulu');
+        }
     }
 
     public function edit($id)
