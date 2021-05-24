@@ -17,7 +17,9 @@ class SantriController extends Controller
         // dd(Santri::with('ponpes')->get());
         // $data = Santri::with('ponpes')->where('id', '=', Auth::user()->ponpes->id)->get();
         $data['ponpes'] = Ponpes::where('user_id', Auth::user()->id)->first()->nama ?? 'Saya';
-        $data['santri'] = Santri::with('ponpes')->get();
+        $data['santri'] = Santri::with(["ponpes" => function($q){
+            $q->where('ponpes.user_id', '=', Auth::user()->id);
+        }])->get();
         return view('santri.index', compact('data'));
     }
 
