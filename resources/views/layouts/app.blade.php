@@ -159,22 +159,29 @@
     <!-- Template Main JS File -->
     <script src="{{asset('js/main.js')}}"></script>
     
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8')}}"></script>
+    {{-- <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8')}}"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8')}}"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8')}}"></script>
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
     <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8')}}">
-    </script>
+    </script> --}}
 
     <script>
         $(document).ready( function () {
         $('#dataTable').DataTable();
     } );
     </script>
-    <script>
+    {{-- <script>
         window.hereApiKey = "Y4C8-_u8doBZZ6ibaE9EScgtcG9aXEPrcMio0lWxEPk"
     </script>
-    <script src="{{ asset('js2/here.js') }}"></script>
+    <script src="{{ asset('js2/here.js') }}"></script> --}}
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    {{-- <script src="{{ asset('js2/mapbox.js') }}"></script> --}} --}}
     @yield('jspage')
 </body>
 

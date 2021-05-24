@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\DB;
 class PonpesController extends Controller
 {
     public function register(){
-        return view('ponpes.register');
+        $ponpes = Ponpes::where('user_id', '=', Auth::user()->id)->first();
+        if ($ponpes) {
+            return view('ponpes.register', compact('ponpes'));
+        } else {
+            return view('ponpes.register');
+        }
     }
 
     public function loadPonpes(Request $request)

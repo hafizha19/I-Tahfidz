@@ -102,16 +102,17 @@ if (navigator.geolocation) {
         const fetchSpaces = function (latitude, longitude, radius) {
             return new Promise(function (resolve, reject) {
                 resolve(
-                    fetch(`/api/spaces?lat=${latitude}&lng=${longitude}&rad=${radius}`)
-                    .then((res) => res.json())
-                    .then(function(data) {
-                        data.forEach(function (value, index) {
-                            let marker = new H.map.Marker({
-                                lat: value.latitude, lng: value.longitude
-                            });
-                            spaces.push(marker);
-                        })
-                    })
+                    // fetch(`/api/santri/lat=${latitude}/long=${longitude}/rad=${radius}`)
+                    fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude},${longitude}&lang=en-US&apiKey=Y4C8-_u8doBZZ6ibaE9EScgtcG9aXEPrcMio0lWxEPk`)
+                    .then(res => { console.log(res);})
+                    // .then(function(data) {
+                    //     data.forEach(function (value, index) {
+                    //         let marker = new H.map.Marker({
+                    //             lat: value.lat, lng: value.long
+                    //         });
+                    //         spaces.push(marker);
+                    //     })
+                    // })
                 )
             })
         }

@@ -65,10 +65,15 @@
                     <span>Dashboard</span></a>
             </li>
             @auth
-            <li class="nav-item {{ Request::routeIs('ponpes.dashboard*') ? 'active': '' }}">
+            <li class="nav-item {{ Request::routeIs('santri.index*') ? 'active': '' }}">
                 <a class="nav-link" href="{{route('santri.index')}}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Santri</span></a>
+            </li>
+            <li class="nav-item {{ Request::routeIs('ponpes.register*') ? 'active': '' }}">
+                <a class="nav-link" href="{{route('ponpes.register')}}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Profil Pesantren</span></a>
             </li>
             @endauth
             {{-- @auth
@@ -106,7 +111,7 @@
                 <a class="nav-link" href="">
                     <span>18650084 - Hafizhatul Kiromi MZ</span></a>
                 <a class="nav-link pt-0" href="">
-                    <span>1865000 - Vinna Yusnita</span></a>
+                    <span>18650004 - Vinna Yusnita</span></a>
             </li>
 
 
@@ -236,23 +241,18 @@
 
     <script src="{{asset('datatables/jquery.dataTables.min.js')}}" defer></script>
     <script src="{{asset('datatables/dataTables.bootstrap4.min.js')}}" defer></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8')}}"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8')}}"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8')}}"></script>
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8')}}">
-    </script>
 
     <script>
         $(document).ready( function () {
         $('#dataTable').DataTable();
     } );
     </script>
-
-    <script>
-        window.hereApiKey = "Y4C8-_u8doBZZ6ibaE9EScgtcG9aXEPrcMio0lWxEPk"
-    </script>
-    <script src="{{ asset('js2/here.js') }}"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     @yield('jspage')
 </body>

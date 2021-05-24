@@ -13,4 +13,9 @@ class Ponpes extends Model
     {
         return $this->hasMany(Santri::class, 'ponpes_id', 'id');
     }
+
+    public function daerah()
+    {
+        return $this->belongsTo(Daerah::class, 'daerah_id', 'id');
+    }
 }

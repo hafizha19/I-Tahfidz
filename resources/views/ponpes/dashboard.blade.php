@@ -133,7 +133,7 @@ Aplikasi Persebaran Penghafal Qur'an
                 <div class="card-header">Sebaran</div>
 
                 <div class="card-body">
-                    <div id="mapContainer" style="height: 500px"></div>
+                    <div id='map' style='height: 500px;'></div>
                 </div>
             </div>
         </div>
@@ -142,7 +142,27 @@ Aplikasi Persebaran Penghafal Qur'an
 @endsection
 
 @section('jspage')
+@section('jspage')
 <script>
-    window.action = "browse"
+  // window.action = "browse"
+  L.mapbox.accessToken = 'pk.eyJ1IjoiaGFmaXpoYTE5IiwiYSI6ImNrbm9kbDV0ZTB4M3kyd285OXlwZ2hpZHUifQ.l3vGVHK_-6vPMTVCEcP9mg';
+var map = L.mapbox.map('map')
+    .setView([-7.566667, 114.933998], 6)
+    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+
+var myLayer = L.mapbox.featureLayer().addTo(map);
+var geojson = {
+    "type": "FeatureCollection",
+    "features": [
+        <?php
+        echo $data['js'];
+        ?>
+    ]
+}
+myLayer.setGeoJSON(geojson);
+myLayer.on("click", function(e) {
+    window.open(e.layere.feature.properties.url);
+});
 </script>
+@endsection
 @endsection

@@ -17,9 +17,9 @@ class SantriSeeder extends Seeder
     {
         $faker = Faker::create('id_ID');
         $ponpes = Ponpes::pluck('id')->toArray();
-		$daerah = Daerah::where('province_name', 'JAWA TIMUR')->pluck('id')->toArray();
+		$daerah = Daerah::pluck('id')->toArray();
 		
-    	for($i = 1; $i <= 10; $i++){
+    	for($i = 1; $i <= 20; $i++){
     	    // insert data ke table pegawai menggunakan Faker
     		DB::table('santri')->insert([
     			'ponpes_id' => $faker->randomElement($ponpes),

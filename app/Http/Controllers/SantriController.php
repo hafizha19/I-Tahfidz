@@ -7,6 +7,7 @@ use App\Santri;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SantriController extends Controller
 {
@@ -81,19 +82,23 @@ class SantriController extends Controller
         return redirect()->route('santri.index')->with('status', 'Data Santri berhasil dihapus');
     }
 
-    public function getSpaces($latitude, $longitude, $radius)
+    public function getSpaces($lat, $long, $radius)
     {
-        return $this->select('spaces.*')
+        $daerah = Santri::pluck('daerah_id')->toArray();
+        return DB::table('daerah')
+            ->select('*')
             ->selectRaw(
                 '( 6371 *
                     acos( cos( radians(?) ) *
-                        cos( radians( latitude ) ) *
-                        cos( radians(longitude ) - radians(?)) +
-                        sin( radians(?) ) *
-                        sin( radians( latitude ) )
+                    cos( radians( lat ) ) *
+                    cos( radians(long ) - radians(?)) +
+                    sin( radians(?) ) *
+                    sin( radians( lat ) )
                     )
-                ) AS distance', [$latitude, $longitude, $latitude]
+                    ) AS distance',
+                [$lat, $long, $lat]
             )
+            ->whereIn('id', '=', $daerah)
             ->havingRaw("distance < ?", [$radius])
             ->orderBy('distance', 'asc');
     }

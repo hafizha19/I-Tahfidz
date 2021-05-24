@@ -21,9 +21,17 @@ Daftarkan pesantren anda di sini
                         <div class="form-group row">
                             <label for="nama" class="col-md-4 col-form-label text-md-right">Nama</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus>
+                                <input type="text" class="form-control" name="nama" value="{{ $ponpes->nama ?? '' }}" required autocomplete="nama" autofocus>
                             </div>
                         </div>
+                        @if (isset($ponpes))
+                        <div class="form-group row">
+                          <label for="daerah_id" class="col-md-4 col-form-label text-md-right">Lokasi Kecamatan</label>
+                          <div class="col-md-6">
+                              <input type="text" class="form-control" value="{{ $ponpes->daerah->kecamatan_name ?? '' }}" autofocus readonly>
+                          </div>
+                      </div>
+                        @endif
                         <div class="form-group row">
                             <label for="daerah_id" class="col-md-4 col-form-label text-md-right">Lokasi Kecamatan</label>
                             <div class="col-md-6">
@@ -33,7 +41,7 @@ Daftarkan pesantren anda di sini
                         <div class="form-group row">
                             <label for="deskripsi" class="col-md-4 col-form-label text-md-right">Deskripsi</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="deskripsi" value="{{ old('deskripsi') }}" required autocomplete="deskripsi" autofocus>
+                                <input type="text" class="form-control" name="deskripsi" value="{{ $ponpes->deskripsi ?? '' }}" required autocomplete="deskripsi" autofocus>
                             </div>
                         </div>
                         {{-- <div class="form-group row">
