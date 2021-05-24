@@ -15,7 +15,7 @@ Daftarkan pesantren anda di sini
             <div class="card">
                 <div class="card-header">Lengkapi data pesantren</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('ponpes.save') }}">
+                    <form method="POST" action="{{ route('ponpes.update') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="nama" class="col-md-4 col-form-label text-md-right">Nama</label>
@@ -32,7 +32,7 @@ Daftarkan pesantren anda di sini
                         </div>
                         @endif
                         <div class="form-group row">
-                            <label for="daerah_id" class="col-md-4 col-form-label text-md-right">Lokasi Kecamatan</label>
+                            <label for="daerah_id" class="col-md-4 col-form-label text-md-right"></label>
                             <div class="col-md-6">
                                 <select class="cari form-control"  name="daerah_id" id="cari_daerah"></select>
                             </div>

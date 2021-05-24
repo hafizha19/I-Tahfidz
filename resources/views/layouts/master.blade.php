@@ -70,8 +70,8 @@
                     <i class="fas fa-fw fa-user"></i>
                     <span>Santri</span></a>
             </li>
-            <li class="nav-item {{ Request::routeIs('ponpes.register*') ? 'active': '' }}">
-                <a class="nav-link" href="{{route('ponpes.register')}}">
+            <li class="nav-item {{ Request::routeIs('ponpes.edit*') ? 'active': '' }}">
+                <a class="nav-link" href="{{route('ponpes.edit')}}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Profil Pesantren</span></a>
             </li>

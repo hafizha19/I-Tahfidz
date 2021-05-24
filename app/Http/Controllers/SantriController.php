@@ -55,7 +55,7 @@ class SantriController extends Controller
         if ($santri->nama != $request->nama) {
             $santri->nama = $request->nama;
         }
-        if ($santri->daerah_id != $request->daerah_id) {
+        if (isset($request->daerah_id)) {
             $santri->daerah_id = $request->daerah_id;
         }
         if ($santri->jenis_kelamin != $request->jenis_kelamin) {
@@ -64,7 +64,7 @@ class SantriController extends Controller
         if ($santri->no_hp != $request->no_hp) {
             $santri->no_hp = $request->no_hp;
         }
-        if ($santri->tanggal_lahir != $request->tanggal_lahir) {
+        if (isset($request->tanggal_lahir)) {
             $santri->tanggal_lahir = $request->tanggal_lahir;
         }
         if ($santri->jumlah_hafalan != $request->jumlah_hafalan) {

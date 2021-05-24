@@ -27,6 +27,8 @@ Route::get('/add', 'HomeController@form')->name('form');
 Route::get('/dashboard', 'HomeController@dashboard')->name('ponpes.dashboard');
 Route::get('/ponpes/register', 'PonpesController@register')->name('ponpes.register');
 Route::post('/ponpes/register', 'PonpesController@save')->name('ponpes.save');
+Route::get('/ponpes/update', 'PonpesController@edit')->name('ponpes.edit');
+Route::post('/ponpes/update', 'PonpesController@update')->name('ponpes.update');
 Route::get('/cari-ponpes', 'PonpesController@loadPonpes');
 Route::get('/cari-daerah', 'PonpesController@loadDaerah');
 Route::get('/santri', 'SantriController@santri')->name('santri.index');
